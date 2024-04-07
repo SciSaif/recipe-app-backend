@@ -4,6 +4,7 @@ import s3 from "./s3.js";
 
 const resolvers = {
     recipes: async (args: any) => {
+        console.log("asking for recipes");
         const {
             mealType,
             cuisine,
