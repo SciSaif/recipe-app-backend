@@ -41,7 +41,7 @@ async function startServer() {
     app.get("/health", (req, res) => {
         res.send("OK");
     });
-
+    console.log("starting");
     app.listen(4000, () => {
         console.log("GraphQL server running on http://localhost:4000/graphql");
     });
