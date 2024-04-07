@@ -1,0 +1,39 @@
+{
+    "name": "recipe-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "build": "tsc && copyfiles -f \"src/**/*.graphql\" dist",
+        "start": "node dist/server.js",
+        "dev": "nodemon --delay 500ms --esm src/server.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.550.0",
+        "@aws-sdk/s3-request-presigner": "^3.550.0",
+        "@types/cors": "^2.8.17",
+        "@types/uuid": "^9.0.8",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "express-graphql": "^0.12.0",
+        "graphql": "^16.8.1",
+        "graphql-tag": "^2.12.6",
+        "graphql-tools": "^9.0.1",
+        "mongodb": "^6.5.0",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/graphql": "^14.5.0",
+        "@types/node": "^20.12.5",
+        "nodemon": "^3.1.0",
+        "ts-node": "^10.9.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.4.4"
+    }
+}

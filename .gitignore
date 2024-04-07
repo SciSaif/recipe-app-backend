@@ -1,0 +1,8 @@
+# git ignore file node and react projects 
+node_modules/
+build/
+dist/
+.DS_Store
+.env
+package-lock.json
+client

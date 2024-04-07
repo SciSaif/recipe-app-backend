@@ -1,0 +1,108 @@
+type Recipe {
+  _id: ID!
+  name: String!
+  ingredients: [String]!
+  instructions: [String]!
+  prepTimeMinutes: Int!
+  cookTimeMinutes: Int!
+  servings: Int!
+  difficulty: String!
+  cuisine:  String!
+  caloriesPerServing: Int!
+  tags: [String]!
+  userId: Int!
+  image: String!
+  rating: Float!
+  reviewCount: Int!
+  mealType: [String]!
+}
+input RecipeBulk {
+  name: String!
+  ingredients: [String]!
+  instructions: [String]!
+  prepTimeMinutes: Int!
+  cookTimeMinutes: Int!
+  servings: Int!
+  difficulty: String!
+  cuisine:  String!
+  caloriesPerServing: Int!
+  tags: [String]!
+  userId: Int!
+  image: String!
+  rating: Float!
+  reviewCount: Int!
+  mealType: [String]!
+}
+
+input RecipeInput {
+  name: String!
+  ingredients: [String]!
+  instructions: [String]!
+  prepTimeMinutes: Int!
+  cookTimeMinutes: Int!
+  servings: Int!
+  difficulty: String!
+  cuisine:  String!
+  caloriesPerServing: Int!
+  tags: [String]!
+  userId: Int!
+  image: String!
+    rating: Float!
+  reviewCount: Int!
+  mealType: [String]!
+  password: String!
+}
+
+type RecipesResult {
+  recipes: [Recipe]
+  totalCount: Int
+}
+
+type Query {
+  recipes(
+    mealType: [String]
+    cuisine: [String]
+    difficulty: [String]
+    tags: [String]
+    skip: Int
+    limit: Int
+  ): RecipesResult
+
+  recipe(_id: ID!): Recipe
+}
+
+
+type SignedUrl {
+  put_url: String!
+  get_url: String!
+}
+
+type insertResult {
+  insertedCount: Int!
+}
+
+type Mutation {
+  createRecipe(
+    name: String!
+    ingredients: [String]!
+    instructions: [String]!
+    prepTimeMinutes: Int!
+    cookTimeMinutes: Int!
+    servings: Int!
+    difficulty: String!
+    cuisine:String!
+    caloriesPerServing: Int!
+    tags: [String]!
+    userId: Int!
+    image: String!
+    rating: Float!
+    reviewCount: Int!
+    mealType: [String]!
+    password: String!
+  ): Recipe
+
+  bulkRecipeUpload(recipes: [RecipeBulk]!): insertResult 
+
+  createSignedUrls(imageCount: Int!):  [SignedUrl]
+
+}
