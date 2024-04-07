@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import { graphqlHTTP } from "express-graphql";
+import { createHandler } from "graphql-http/lib/use/express";
 import { buildSchema } from "graphql";
 import { connectToDatabase } from "./database.js";
 import cors from "cors";
@@ -26,11 +26,15 @@ async function startServer() {
 
     app.use(
         "/graphql",
-        graphqlHTTP({
+        createHandler({
             schema: schema,
             rootValue: resolvers,
-            graphiql: true,
         })
+        // graphqlHTTP({
+        //     schema: schema,
+        //     rootValue: resolvers,
+        //     graphiql: true,
+        // })
     );
 
     app.listen(4000, () => {
