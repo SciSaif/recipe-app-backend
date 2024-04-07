@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import dotenv from "dotenv";
 dotenv.config();
+const PORT = process.env.PORT || 4000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,8 +43,8 @@ async function startServer() {
         res.send("OK");
     });
     console.log("starting");
-    app.listen(4000, () => {
-        console.log("GraphQL server running on http://localhost:4000/graphql");
+    app.listen(PORT, () => {
+        console.log("GraphQL server running on port " + PORT);
     });
 }
 
